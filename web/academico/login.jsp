@@ -13,7 +13,7 @@
         <%@include file="../WEB-INF/jspf/jspf_home/headLogin.jspf" %>
         <script src="../js/validarRegister.js" type="text/javascript"></script>
     </head>
-    <body style="background-image: url(../Imagenes/cards.jpg); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+    <body style="background-image: url('../Imagenes/cards.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
 
     <body class="font-cover" id="login">
 

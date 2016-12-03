@@ -40,19 +40,9 @@ public class home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //    processRequest(request, response);
         
-        PrintWriter out = response.getWriter();
-
-        String user = request.getParameter("user");
-        String pass = request.getParameter("clave");
-
-        if (ao.validar(user, pass) > 0) {
-            HttpSession objSession = request.getSession(true);
-            objSession.setAttribute("usuario", user);
-            response.sendRedirect("../academico/Principal.jsp");
-        } else {
-            response.sendRedirect("/index.jsp");
-        }
+        
         
     }
 
@@ -68,7 +58,6 @@ public class home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
     
         op = Integer.parseInt(request.getParameter("op"));
         switch (op){
@@ -82,7 +71,7 @@ public class home extends HttpServlet {
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
-                    
+            case 2: 
         }
     
     
