@@ -3,7 +3,7 @@
     Created on : 25/11/2016, 03:28:03 PM
     Author     : Brandukosky
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,57 +18,59 @@
         <%@include file="../WEB-INF/jspf/jspf_home/header_vertical.jspf" %>
         <%@include file="../WEB-INF/jspf/jspf_home/navbarhome.jspf" %>
         
-            <div class="container">
+            
                 <div class="row">
                     <article class="col s12">
                         <h2>Lista de Alumnos</h2>  
                         <a href="<%= request.getContextPath()%>/h?op=2" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
                         <div class="full-width center-align" style="margin: 40px 0;">
-                            
-
                             <table class="striped col s12">
                                 <thead>
                                     <tr>
-                                        <th data-field="nom">Nombre</th>
-                                        <th data-field="apellido">Apellido</th>
-                                        <th data-field="dni">DNI</th>
-                                        <th data-field="sexo">Sexo</th>
-                                        <th data-field="cel">Celular</th>
-                                        <th data-field="edad">Edad</th>
-                                        <th data-field="correo">Correo</th>
-                                        <th data-field="direc">Dirección</th>
-                                        <th data-field="correo">Usuarios</th>
-                                        <th data-field="direc">Contraseñas</th>
-                                        <th data-field="oper">Opciones</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>DNI</th>
+                                        <th>Sexo</th>
+                                        <th>Celular</th>
+                                        <th>Edad</th>
+                                        <th>Correo</th>
+                                        <th>Dirección</th>
+                                        <th>Usuarios</th>
+                                        <th>Contraseñas</th>
+                                        <th>Código</th>
+                                        <th colspan="2">Opciones</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                <c:forEach var="PersonaDTO" begin="0" items="${lista}">                
+                                <c:forEach items="${lista}" var="datos">                
 
                                     <tr>
-                                        <td><c:out value="${PersonaDTO.Nombres}"></c:out></td>
-                                        
-                                        
+                                        <td><c:out value="${datos.nombre}"/></td>
+                                        <td><c:out value="${datos.apellido}"/></td>
+                                        <td><c:out value="${datos.dni}"/></td>
+                                        <td><c:out value="${datos.sexo}"/></td>
+                                        <td><c:out value="${datos.celular}"/></td>
+                                        <td><c:out value="${datos.edad}"/></td>
+                                        <td><c:out value="${datos.correo}"/></td>
+                                        <td><c:out value="${datos.direccion}"/></td>
+                                        <td><c:out value="${datos.user}"/></td>
+                                        <td><c:out value="${datos.pass}"/></td>
+                                        <td><c:out value="${datos.codigo}"/></td>
+
+                                        <td><a class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
+                                            <a class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
+
                                     </tr>
                                 </c:forEach>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>    
 
                         </div>
                     </article>
                 </div>
-            </div>
+            
                                         
         <div class="fixed-action-btn horizontal">
             <a class="btn-floating btn-large red">

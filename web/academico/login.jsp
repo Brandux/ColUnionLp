@@ -31,8 +31,8 @@
                 <div class="input-field col s12">
                     <input id="clave" name="clave" type="password" class="validate" id="txtclave">
                     <label for="Password"><i class="zmdi zmdi-lock"></i>&nbsp; Contraseña</label>
-                    <!--<input type="hidden" name="op" value="1">
-                    -->
+                    <input type="hidden" name="op" value="2" class="form-control">
+
                 </div>
 
                 <button  id="btniniciar" name="boton"  class="waves-effect waves-teal btn-flat">Ingresar &nbsp; <i class="zmdi zmdi-mail-send"></i></button>

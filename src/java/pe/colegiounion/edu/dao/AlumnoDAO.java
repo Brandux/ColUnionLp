@@ -28,7 +28,7 @@ public class AlumnoDAO implements Operaciones<AlumnoDTO>{
     private Connection cx;
     private static CallableStatement call;
     
-    private final String SQL_LISTAR = "SELECT * FROM ALUMNO";
+    private final String SQL_LISTAR = "SELECT NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA WHERE IDROLES =1";
     private final String SQL_GUARDAR = "{call Proc_Insert_Alumno(1,?,?,?,?,?,?,?,?,?,?,?)}";
     private final String SQL_UPDATE = "";
     private final String SQL_BUSCAR = "SELECT * FROM ALUMNO WHERE IDALUMNO=?";
@@ -108,23 +108,32 @@ public class AlumnoDAO implements Operaciones<AlumnoDTO>{
 
     @Override
     public List<AlumnoDTO> listar() {
-
-        List<AlumnoDTO> lista  = new ArrayList<>();
+        return null;
+    }
+    public List<PersonaDTO> listarAl() {
+        List<PersonaDTO> lista = new ArrayList<>();
         try {
             cx = Conexion.getConexion();
-            ps= cx.prepareStatement(SQL_LISTAR);
+            ps = cx.prepareStatement(SQL_LISTAR);
             rs = ps.executeQuery();
-            while (rs.next()){
-                AlumnoDTO al = new AlumnoDTO();
-                al.setEstado(rs.getString("ESTADO"));
-                al.setIdAlumno(rs.getInt("IDALUMNO"));
-                lista.add(al);
+            while (rs.next()) {
+                PersonaDTO p = new PersonaDTO();
+                p.setNombre(rs.getString("NOMBRE"));
+                p.setApellido(rs.getString("APELLIDO"));
+                p.setDni(rs.getString("DNI"));
+                p.setSexo(rs.getString("SEXO"));
+                p.setCelular(rs.getString("CELULAR"));
+                p.setEdad(rs.getString("EDAD"));
+                p.setCorreo(rs.getString("CORREO"));
+                p.setDireccion(rs.getString("DIRECCION"));
+                p.setUser(rs.getString("USU"));
+                p.setPass(rs.getString("PASS"));
+                p.setCodigo(rs.getString("CODIGO"));
+                lista.add(p);
             }
         } catch (Exception e) {
-            System.out.println("Error:" +e);
+            System.out.println("Error:" + e);
         }
         return lista;
-        
     }
-    
 }

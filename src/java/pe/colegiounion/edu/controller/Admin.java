@@ -13,20 +13,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import pe.colegiounion.edu.dao.AlumnoDAO;
+import pe.colegiounion.edu.dao.HorarioDAO;
+import pe.colegiounion.edu.dao.MatriculaDAO;
+import pe.colegiounion.edu.dao.NotasDAO;
+import pe.colegiounion.edu.dao.PagoDAO;
 import pe.colegiounion.edu.dao.PersonaDAO;
 
 /**
  *
  * @author Brandukosky
  */
-@WebServlet(name = "home", urlPatterns = {"/h"})
-public class home extends HttpServlet {
-    private int op;
-    String pagina;
-    private RequestDispatcher dispatcher ;
-    private PersonaDAO ao = new PersonaDAO();
-    
+@WebServlet(name = "Admin", urlPatterns = {"/a"})
+public class Admin extends HttpServlet {
+        int op =0;
+        String pagina ;
+        private RequestDispatcher dispatcher;
+        private PersonaDAO p = new PersonaDAO();
+        private HorarioDAO h = new HorarioDAO();
+        private NotasDAO n = new NotasDAO();
+        private MatriculaDAO m = new MatriculaDAO();
+        private PagoDAO pa = new PagoDAO();
+        private AlumnoDAO al = new AlumnoDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +48,18 @@ public class home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //    processRequest(request, response);
-        
-        
-        
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Admin</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Admin at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -58,43 +74,52 @@ public class home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
+     //  processRequest(request, response);
         op = Integer.parseInt(request.getParameter("op"));
-        switch (op){
-            case 0 : 
-                pagina = "/index.jsp";
+        switch (op) {
+            case 0:
+                pagina = "/academico/Admin.jsp";
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
-            case 1: 
-                pagina = "/academico/login.jsp";
+            case 1:
+                pagina = "/academico/RgHorario.jsp";
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
-            case 2: 
-                pagina = "/Inicial.jsp";
+            case 2:
+                pagina = "/academico/Notas.jsp";
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
-            
             case 3:
-                pagina = "/Primaria.jsp";
+                pagina = "/academico/Matricula.jsp";
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
             case 4:
-                pagina = "/Secundaria.jsp";
+                pagina = "/academico/Pago.jsp";
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
-            case 5:
-                pagina = "/Contactenos.jsp";
+            case 5: 
+                pagina ="/academico/Alumno.jsp";
+                request.setAttribute("lista", al.listarAl());
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
+            case 6:
+                pagina = "/academico/Profesores.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+            case 7:
+                pagina = "/academico/RgCursos.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+                
         }
-    
-    
     }
 
     /**
@@ -108,28 +133,8 @@ public class home extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-    op = Integer.parseInt(request.getParameter("op"));
-    switch (op){
-        case 1: 
-            pagina = "/academico/Admin.jsp";
-            dispatcher = getServletContext().getRequestDispatcher(pagina);
-            dispatcher.forward(request, response);
-            break;
-       case 2:
-           
-           String user =  request.getParameter("user");
-           String pass = request.getParameter("clave");
-           if(ao.validar(user, pass)>0){
-               pagina="/h?op=1";
-           }else{
-               pagina="/h?op=0";
-           }
-           dispatcher = getServletContext().getRequestDispatcher(pagina);
-           dispatcher.forward(request, response);
-           break;
-    }
-    
+       // processRequest(request, response);
+        
     }
 
     /**

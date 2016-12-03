@@ -50,9 +50,8 @@
                                         <td>17</td>
                                         <td>branduxjuarez@upeu.edu.pe</td>
                                         <td>Alameda Ñaña</td>
-                                        <td><a class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit
-                                                </i></a><a class="waves-effect waves-light btn-flat"><i class="material-icons">close    
-                                                </i></a></td>
+                                        <td><a class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
+                                            <a class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
                                     </tr>
                                     <tr>
                                         <td>Alan</td>

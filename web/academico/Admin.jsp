@@ -26,14 +26,14 @@
                                 <div class="col s4">
                                     <div class="card">
                                         <div class="card-image">
-                                            <img src="../Imagenes/user.png">
+                                            <img src="Imagenes/user.png">
                                             <span class="card-title black-text ">Alumnos</span>
                                         </div>
                                         <div class="card-action">
-                                            <a href="h?op=1">Registrar</a>
+                                            <a href="a?op=5">Registrar</a>
                                         </div>
                                         <div class="card-action">
-                                            <a href="#">Listar</a>
+                                            <a href="a?op=5">Listar</a>
                                         </div>
 
                                     </div>
@@ -42,15 +42,15 @@
                                 <div class="col s4">
                                     <div class="card">
                                         <div class="card-image">
-                                            <img src="../Imagenes/icoprofesor.png">
+                                            <img src="Imagenes/icoprofesor.png">
                                             <span class="card-title black-text">Profesores</span>
                                         </div>
                                         
                                         <div class="card-action">
-                                            <a href="Profesores.jsp">Registrar</a>
+                                            <a href="a?op=6">Registrar</a>
                                         </div>
                                         <div class="card-action">
-                                            <a href="#">Asignar Curso</a>
+                                            <a href="a?op=7">Asignar Curso</a>
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                                 <div class="col s4">
                                     <div class="card">
                                         <div class="card-image">
-                                            <img src="../Imagenes/iconAdmin.jpg">
+                                            <img src="Imagenes/iconAdmin.jpg">
                                             <span class="card-title black-text">Personal Administrativo</span>
                                         </div>
                                         <div class="card-action">

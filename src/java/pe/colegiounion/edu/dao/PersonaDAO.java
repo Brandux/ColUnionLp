@@ -25,7 +25,7 @@ public class PersonaDAO implements Operaciones<PersonaDTO>{
     private Connection cx;
     
     
-    private  final String SQL_Validar="SELECT * FROM PERSONA WHERE USER=? AND PASS=?";
+    private  final String SQL_Validar="SELECT * FROM PERSONA WHERE USU=? AND PASS=?";
     private final String SQL_LISTAR = "SELECT * FROM PERSONA";
     private final String SQL_GUARDAR = "INSERT INTO PERSONA (IDPERSONA,IDROLES, NOMBRE, APELLIDO, DNI,SEXO, CELULAR, EDAD, CORREO, DIRECCION, USU, PASS, CODIGO, ESTADO) VALUES (NULL, ?,?,?,?, ?, ?, ?, ?, ?,?, ?, ?, ?)";
     private final String SQL_UPDATE = "UPDATE PERSONA SET IDROLES =?, NOMBRE = ?, APELLIDO = ?, DNI = ?, SEXO = ?, CELULAR = ?, EDAD = ?, CORREO = ?, DIRECCION = ?, USU =?,  PASS = ? WHERE IDPERSONA = ?";
