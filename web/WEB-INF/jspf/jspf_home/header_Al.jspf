@@ -1,0 +1,42 @@
+<%-- any content can be specified here e.g.: --%>
+<section class="NavLateral full-width" style="position: fixed; display: block;">
+
+    <div class="NavLateral-FontMenu full-width ShowHideMenu"></div>
+    <div class="NavLateral-content full-width">
+        <header class="NavLateral-title full-width center-align">
+            Colegio Unión <i class="zmdi zmdi-close NavLateral-title-btn ShowHideMenu"></i>
+        </header>
+        <figure class="full-width NavLateral-logo">
+            <img src="../../Imagenes/loginHOmeicon.jpg" alt="material-logo" class="responsive-img center-box">
+            <figcaption class="center-align">Portal Estudiantil</figcaption>
+        </figure> 
+
+        <div class="NavLateral-Nav">
+            <ul class="full-width">
+                <li>
+                    <a href="../../../academico/AcademicoAlumno/Alumno_H.jsp" class="waves-effect waves-light"><i class="large material-icons">web</i> Inicio</a>
+                </li>
+                <li class="NavLateralDivider"></li>
+                <li>
+                    <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">verified_user</i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i> Datos Alumno</a>
+                    <ul class="full-width">
+                        <li><a href="../../../academico/AcademicoAlumno/Pago.jsp" class="waves-effect waves-light"> Pagos</a></li>
+                        <li class="NavLateralDivider"></li>
+                        <li><a href="#" class="waves-effect waves-light"> Matriculas</a></li>
+                    </ul>
+                </li>
+                <li class="NavLateralDivider"></li>
+                <li>
+                    <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">assignment</i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i> Bliblioteca</a>
+                </li>
+                <li class="NavLateralDivider"></li>
+                <li>
+                    <a href="#" class="waves-effect waves-light"> <i class="large material-icons">info</i> Eventos</a>
+                </li> 
+                <li>
+                    <a href="../../../academico/AcademicoAlumno/ticket.jsp" class="waves-effect waves-light"><i class="large material-icons">grade</i> Tiques Cultura</a>
+                </li>
+            </ul>
+        </div>  
+    </div>  
+</section>

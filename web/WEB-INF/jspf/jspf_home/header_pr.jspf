@@ -1,0 +1,34 @@
+<%-- any content can be specified here e.g.: --%>
+
+<section class="NavLateral full-width" style="position: fixed; display: block;">
+
+    <div class="NavLateral-FontMenu full-width ShowHideMenu"></div>
+    <div class="NavLateral-content full-width">
+        <header class="NavLateral-title full-width center-align">
+            Colegio Unión <i class="zmdi zmdi-close NavLateral-title-btn ShowHideMenu"></i>
+        </header>
+        <figure class="full-width NavLateral-logo">
+            <img src="../../../academico/AcademicoProfesor/profesor_H.jsp" alt="material-logo" class="responsive-img center-box">
+            <figcaption class="center-align">Portal Estudiantil</figcaption>
+        </figure> 
+
+        <div class="NavLateral-Nav">
+            <ul class="full-width">
+                <li>
+                    <a href="../../../academico/AcademicoProfesor/profesor_H.jsp" class="waves-effect waves-light"><i class="large material-icons">web</i> Inicio</a>
+                </li>
+                <li class="NavLateralDivider"></li>
+                <li>
+                    <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">verified_user</i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i>Biblioteca</a>
+                </li>
+                <li class="NavLateralDivider"></li>
+                <li>
+                    <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">assignment</i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i> Eventos</a>
+                </li>
+                <li class="NavLateralDivider">
+                    
+                </li>
+            </ul>
+        </div>  
+    </div>  
+</section>

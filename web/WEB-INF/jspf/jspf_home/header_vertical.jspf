@@ -1,0 +1,53 @@
+<%-- any content can be specified here e.g.: --%>
+
+<!-- Nav Lateral-->
+<section class="NavLateral full-width" style="position: fixed; display: block;">
+
+    <div class="NavLateral-FontMenu full-width ShowHideMenu"></div>
+    <div class="NavLateral-content full-width">
+        <header class="NavLateral-title full-width center-align">
+            Colegio Unión <i class="zmdi zmdi-close NavLateral-title-btn ShowHideMenu"></i>
+        </header>
+        <figure class="full-width NavLateral-logo">
+            <img src="../Imagenes/loginHOmeicon.jpg" alt="material-logo" class="responsive-img center-box">
+            <figcaption class="center-align">Portal Estudiantil</figcaption>
+        </figure> 
+
+        <div class="NavLateral-Nav">
+            <ul class="full-width">
+                <li>
+                    <a href="Principal.jsp" class="waves-effect waves-light"><i class="large material-icons">web</i> Inicio</a>
+                </li>
+                <li class="NavLateralDivider"></li>
+                <li>
+                    <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">verified_user</i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i>Cursos</a>
+                    <ul class="full-width">
+                        <li><a href="#" class="waves-effect waves-light">Horarios</a></li>
+                        <li class="NavLateralDivider"></li>
+                        <li><a href="#" class="waves-effect waves-light">Notas</a></li>
+                    </ul>
+                </li>
+                <li class="NavLateralDivider"></li>
+                <li>
+                    <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">assignment</i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i> Matrícula</a>
+                    <ul class="full-width">
+                        <li><a href="RegistroMatri.jsp" class="waves-effect waves-light">Registro Matricula</a></li>
+                        <li class="NavLateralDivider"></li>
+                        <li><a href="#" class="waves-effect waves-light">Pagos</a></li>
+                    </ul>
+                </li>
+                <li class="NavLateralDivider"></li>
+                <li>
+                    <a href="Admin.jsp" class="waves-effect waves-light"> <i class="large material-icons">info</i> Administración</a>
+                </li> 
+
+                <li>
+                    <a href="#" class="waves-effect waves-light"><i class="large material-icons">grade</i> Tiques Cultura</a>
+                </li>
+                <li>
+                    <a href="h?op=0" class="waves-effect waves-light"><i class="large material-icons">power_settings_new</i> Salir</a>
+                </li>
+            </ul>
+        </div>  
+    </div>  
+</section>

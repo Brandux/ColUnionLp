@@ -1,0 +1,18 @@
+<%-- any content can be specified here e.g.: --%>
+<link rel="icon" href="../Imagenes/LOGO CU PARA VIDEO-01.ico">
+
+<!-- Normalize CSS -->
+
+<link href="../css/normalize.css" rel="stylesheet" type="text/css"/>
+
+<!-- Materialize CSS -->
+<link href="../css/materialize.min.css" rel="stylesheet" type="text/css"/>
+
+<!-- Materialize Iconos CSS -->
+<link href="../css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css"/>
+
+<!-- Iconos web-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+ <!-- Mio CSS -->
+ <link href="../css/EstilosGenerales.css" rel="stylesheet" type="text/css"/>

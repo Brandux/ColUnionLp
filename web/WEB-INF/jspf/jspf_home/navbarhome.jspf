@@ -1,0 +1,19 @@
+<%-- any content can be specified here e.g.: --%>
+
+<section class="ContentPage full-width">
+    <!-- navbar Informacion superios-->
+    <div class="ContentPage-Nav full-width">
+        <ul class="full-width">
+            <li class="btn-MobileMenu ShowHideMenu"><a href="#" class="tooltipped waves-effect waves-light" data-position="bottom" data-delay="50" data-tooltip="Menu"><i class="zmdi zmdi-more-vert"></i></a></li>
+            <li><figure><img src="../Imagenes/user.png" alt="UserImage"></figure></li>
+            <li style="padding:0 5px;" >Brandux</li>
+            <li><a href="../academico/login.jsp" class="tooltipped waves-effect waves-light " data-position="bottom" data-delay="50" data-tooltip="Cerrar Sesión"><i class="zmdi zmdi-power"></i></a></li>
+            <li><a href="#" class="tooltipped waves-effect waves-light " data-position="bottom" data-delay="50" data-tooltip="Buscar"><i class="zmdi zmdi-search"></i></a></li>
+            <li>
+                <a href="#" class="tooltipped waves-effect waves-light" data-position="bottom" data-delay="50" data-tooltip="Notificaciones">
+                    <i class="zmdi zmdi-notifications"></i>
+
+                </a>
+            </li>
+        </ul>   
+    </div>

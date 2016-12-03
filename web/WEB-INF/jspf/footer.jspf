@@ -1,0 +1,28 @@
+<%-- any content can be specified here e.g.: --%>
+<footer class="page-footer" style="background: #0081d7; margin-top: 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <br>
+                    <img src="Imagenes/bannerunion.png">
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Ubicanos</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3">Colegio Unión de Ñaña<br>
+                                Altura Km. 19.5 Carretera Central, Ñaña-Lima<br>
+                                Telf.: 01-618 6324<br>
+                                Correo: admision@colegiounion.edu.pe<br>
+                                Lima - Perú</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright" style="background: #0073c1">
+            <div class="container">
+                © 2016 Ing Sistemas- Ciclo III
+                <a class="grey-text text-lighten-4 right" href="http://www.upeu.edu.pe/fia/isistemas/">Ing de Sistemas - UPeU</a>
+            </div>
+        </div>
+    </footer>

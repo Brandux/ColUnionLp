@@ -1,0 +1,12 @@
+<%-- any content can be specified here e.g.: --%>
+
+<link rel="icon" href="Imagenes/LOGO CU PARA VIDEO-01.ico">
+<%-- Estilo --%>
+<link href="css/Estilos.css" rel="stylesheet" type="text/css"/>
+
+<%-- Materialize --%>
+<link href="css/materialize.css" rel="stylesheet" type="text/css"/>
+<link href="css/materialize.min.css" rel="stylesheet" type="text/css"/>
+
+<%-- Iconos de materialize --%>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
