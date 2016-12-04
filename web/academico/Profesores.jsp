@@ -54,7 +54,7 @@
                                         <th><c:out value="${datos.user}"/></th>
                                         <th><c:out value="${datos.pass}"/></th>
                                         <th><c:out value="${datos.codigo}"/></th>
-                                        <td><a href="a?op=10&id=<c:out value="${datos.idPersona}"/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
+                                        <td><a href="a?op=11&id=<c:out value="${datos.idPersona}"/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
                                             <a href="a?op=10&id=<c:out value="${datos.idPersona}"/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
                                     </tr>
                                     </c:forEach>

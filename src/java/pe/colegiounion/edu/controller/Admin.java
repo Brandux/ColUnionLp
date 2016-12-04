@@ -90,6 +90,7 @@ public class Admin extends HttpServlet {
                 break;
             case 2:
                 pagina = "/academico/Notas.jsp";
+                request.setAttribute("lista", n.listar());
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
@@ -165,6 +166,55 @@ public class Admin extends HttpServlet {
                  request.setAttribute("Lin", p.listarLim());
                  dispatcher = getServletContext().getRequestDispatcher(pagina);
                  dispatcher.forward(request, response);
+                 break;
+             case 13 :
+                 int dire = Integer.parseInt(request.getParameter("id"));
+                pagina = "/a?op=12";
+                if (p.delete(dire) > 0) {
+                    pagina = "/a?op=12";
+                } else {
+                    pagina = "/a?op=12";
+                }
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+             case 14:
+                 //aqui ira el upadte de director
+                 break;
+                 
+                 //para secretaria
+             case 15:
+                 int Secre = Integer.parseInt(request.getParameter("id"));
+                pagina = "/a?op=5";
+                if (p.delete(Secre) > 0) {
+                    pagina = "/a?op=5";
+                } else {
+                    pagina = "/a?op=5";
+                }
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+             case 16:
+                 // aqui ira el update
+                 break;
+                 
+                 //Para Limpiera 
+             case 17 :
+                 int lim = Integer.parseInt(request.getParameter("id"));
+                 pagina = "/a?op=5";
+                 if (p.delete(lim) > 0) {
+                     pagina = "/a?op=5";
+                 } else {
+                     pagina = "/a?op=5";
+                 }
+                 dispatcher = getServletContext().getRequestDispatcher(pagina);
+                 dispatcher.forward(request, response);
+                 break;
+             case 18:
+                 //aqui ira el update para editar  limpieza
+                 break;
+                 
+             case 19:
                  break;
         }
     }

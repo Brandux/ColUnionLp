@@ -56,8 +56,8 @@
                                         <td><c:out value="${d.user}"/></td>
                                         <th><c:out value="${d.pass}"/></td>
                                         <td><c:out value="${d.codigo}"/></td>
-                                        <td><a href="a?op=10&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
-                                            <a href="a?op=10&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
+                                        <td><a href="a?op=14&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
+                                            <a href="a?op=13&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -105,8 +105,8 @@
                                         <td><c:out value="${de.user}"/></td>
                                         <th><c:out value="${de.pass}"/></td>
                                         <td><c:out value="${de.codigo}"/></td>
-                                        <td><a href="a?op=10&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
-                                            <a href="a?op=10&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
+                                        <td><a href="a?op=16&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
+                                            <a href="a?op=15&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -119,7 +119,7 @@
                     
                     <article class="col s12">
                         <br>
-                        <h2 style="text-align: center;">Perrsonal de Limpiera</h2>  
+                        <h2 style="text-align: center;">Personal de Limpieza</h2>  
                         <a href="<%= request.getContextPath()%>/h?op=2" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
                         <div class="full-width center-align" style="margin: 40px 0;">
                             <table class="striped col s12">
@@ -156,8 +156,8 @@
                                             <td><c:out value="${des.user}"/></td>
                                             <th><c:out value="${des.pass}"/></td>
                                             <td><c:out value="${des.codigo}"/></td>
-                                            <td><a href="a?op=10&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
-                                                <a href="a?op=10&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
+                                            <td><a href="a?op=18&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
+                                                <a href="a?op=17&id=<c:out value='${datos.idPersona}'/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
