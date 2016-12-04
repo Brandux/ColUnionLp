@@ -19,6 +19,7 @@ import pe.colegiounion.edu.dao.MatriculaDAO;
 import pe.colegiounion.edu.dao.NotasDAO;
 import pe.colegiounion.edu.dao.PagoDAO;
 import pe.colegiounion.edu.dao.PersonaDAO;
+import pe.colegiounion.edu.dao.ProfesorDAO;
 
 /**
  *
@@ -35,7 +36,7 @@ public class Admin extends HttpServlet {
         private MatriculaDAO m = new MatriculaDAO();
         private PagoDAO pa = new PagoDAO();
         private AlumnoDAO al = new AlumnoDAO();
-
+        private ProfesorDAO pf = new ProfesorDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -110,6 +111,7 @@ public class Admin extends HttpServlet {
                 break;
             case 6:
                 pagina = "/academico/Profesores.jsp";
+                request.setAttribute("Lista", pf.listarPf());
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
@@ -118,7 +120,52 @@ public class Admin extends HttpServlet {
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
-                
+                //datos para eliminar datos de alumno
+            case 8 :
+                int d1 = Integer.parseInt(request.getParameter("id"));
+                pagina = "/a?op=5";
+                if (p.delete(d1) > 0) {
+                    pagina = "/a?op=5";
+                } else {
+                    pagina = "/a?op=5";
+                }
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+            case 9:
+                int d = Integer.parseInt(request.getParameter("id"));
+                pagina = "/vista/Update.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+                //casos para eliminar datos de profesores
+            case 10 : 
+                int d2 = Integer.parseInt(request.getParameter("id"));
+                pagina = "/a?op=5";
+                if (p.delete(d2) > 0) {
+                    pagina = "/a?op=5";
+                } else {
+                    pagina = "/a?op=5";
+                }
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+             case 11:
+                int d3 = Integer.parseInt(request.getParameter("id"));
+                pagina = "/vista/Update.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+                 
+                 //adaministrativo
+             case 12: 
+                 pagina = "/academico/Personal.jsp";
+                 request.setAttribute("lista", p.listarDir());
+                 request.setAttribute("Secre", p.listarSec());
+                 request.setAttribute("Lin", p.listarLim());
+                 dispatcher = getServletContext().getRequestDispatcher(pagina);
+                 dispatcher.forward(request, response);
+                 break;
         }
     }
 

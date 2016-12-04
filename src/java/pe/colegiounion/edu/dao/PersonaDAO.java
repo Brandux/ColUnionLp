@@ -26,7 +26,11 @@ public class PersonaDAO implements Operaciones<PersonaDTO>{
     
     
     private  final String SQL_Validar="SELECT * FROM PERSONA WHERE USU=? AND PASS=?";
-    private final String SQL_LISTAR = "SELECT * FROM PERSONA";
+    private final String SQL_LISTAR = "SELECT * FROM PERSONA WHERE IDROLES =5";
+    private final String SQL_ListarSecre ="SELECT IDPERSONA,NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA  WHERE IDROLES =3 ";
+    private final String SQL_ListarDirec ="SELECT IDPERSONA, NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA  WHERE IDROLES =4";
+    private final String SQL_ListarLim ="SELECT IDPERSONA, NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA WHERE IDROLES =5";
+    
     private final String SQL_GUARDAR = "INSERT INTO PERSONA (IDPERSONA,IDROLES, NOMBRE, APELLIDO, DNI,SEXO, CELULAR, EDAD, CORREO, DIRECCION, USU, PASS, CODIGO, ESTADO) VALUES (NULL, ?,?,?,?, ?, ?, ?, ?, ?,?, ?, ?, ?)";
     private final String SQL_UPDATE = "UPDATE PERSONA SET IDROLES =?, NOMBRE = ?, APELLIDO = ?, DNI = ?, SEXO = ?, CELULAR = ?, EDAD = ?, CORREO = ?, DIRECCION = ?, USU =?,  PASS = ? WHERE IDPERSONA = ?";
     private final String SQL_BUSCAR = "SELECT *FROM PERSONA WHERE IDPERSONA=?";
@@ -147,33 +151,119 @@ public class PersonaDAO implements Operaciones<PersonaDTO>{
 
     @Override
     public List<PersonaDTO> listar() {
-        List <PersonaDTO> lista = new ArrayList<>();
+        List<PersonaDTO> lista = new ArrayList<>();
         try {
-            cx= Conexion.getConexion();
-            ps= cx.prepareStatement(SQL_LISTAR);
+            cx = Conexion.getConexion();
+            ps = cx.prepareStatement(SQL_LISTAR);
             rs = ps.executeQuery();
-            
-            while(rs.next()){
-                PersonaDTO p= new PersonaDTO();
-                p.setNombre(rs.getString("nombre"));
-                p.setApellido(rs.getString("apellido"));
-                p.setDni(rs.getString("dni"));
-                p.setSexo(rs.getString("sexo"));
-                p.setCelular(rs.getString("celular"));
-                p.setEdad(rs.getString("edad"));
-                p.setCorreo(rs.getString("correo"));
-                p.setDireccion(rs.getString("direccion"));
-                p.setUser(rs.getString("user"));
-                p.setPass(rs.getString("pass"));
-                p.setIdPersona(rs.getInt("idPersona"));
+            while (rs.next()) {
+                PersonaDTO p = new PersonaDTO();
+                p.setIdPersona(rs.getInt("IDPERSONA"));
+                p.setNombre(rs.getString("NOMBRE"));
+                p.setApellido(rs.getString("APELLIDO"));
+                p.setDni(rs.getString("DNI"));
+                p.setSexo(rs.getString("SEXO"));
+                p.setCelular(rs.getString("CELULAR"));
+                p.setEdad(rs.getString("EDAD"));
+                p.setCorreo(rs.getString("CORREO"));
+                p.setDireccion(rs.getString("DIRECCION"));
+                p.setUser(rs.getString("USU"));
+                p.setPass(rs.getString("PASS"));
+                p.setCodigo(rs.getString("CODIGO"));
                 lista.add(p);
             }
-            
         } catch (Exception e) {
-            System.out.println("Error: " +e);
+            System.out.println("Error:" + e);
         }
         return lista;
     }
     
+    //para listar a las secretaria y director ,etc
+    //secretaria
+    public List<PersonaDTO> listarSec() {
+        List<PersonaDTO> lista = new ArrayList<>();
+        try {
+            cx = Conexion.getConexion();
+            ps = cx.prepareStatement(SQL_ListarSecre);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                PersonaDTO p = new PersonaDTO();                
+                p.setIdPersona(rs.getInt("IDPERSONA"));
+                p.setNombre(rs.getString("NOMBRE"));
+                p.setApellido(rs.getString("APELLIDO"));
+                p.setDni(rs.getString("DNI"));
+                p.setSexo(rs.getString("SEXO"));
+                p.setCelular(rs.getString("CELULAR"));
+                p.setEdad(rs.getString("EDAD"));
+                p.setCorreo(rs.getString("CORREO"));
+                p.setDireccion(rs.getString("DIRECCION"));
+                p.setUser(rs.getString("USU"));
+                p.setPass(rs.getString("PASS"));
+                p.setCodigo(rs.getString("CODIGO"));
+                lista.add(p);
+            }
+        } catch (Exception e) {
+            System.out.println("Error:" + e);
+        }
+        return lista;
+    }
+    // listar directores
     
+    public List<PersonaDTO> listarDir() {
+        List<PersonaDTO> lista = new ArrayList<>();
+        try {
+            cx = Conexion.getConexion();
+            ps = cx.prepareStatement(SQL_ListarDirec);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                PersonaDTO p = new PersonaDTO();
+                p.setIdPersona(rs.getInt("IDPERSONA"));
+                p.setNombre(rs.getString("NOMBRE"));
+                p.setApellido(rs.getString("APELLIDO"));
+                p.setDni(rs.getString("DNI"));
+                p.setSexo(rs.getString("SEXO"));
+                p.setCelular(rs.getString("CELULAR"));
+                p.setEdad(rs.getString("EDAD"));
+                p.setCorreo(rs.getString("CORREO"));
+                p.setDireccion(rs.getString("DIRECCION"));
+                p.setUser(rs.getString("USU"));
+                p.setPass(rs.getString("PASS"));
+                p.setCodigo(rs.getString("CODIGO"));
+                lista.add(p);
+            }
+        } catch (Exception e) {
+            System.out.println("Error:" + e);
+        }
+        return lista;
+    }
+    
+    // Listado de Personal de limpieza
+    
+    public List<PersonaDTO> listarLim() {
+        List<PersonaDTO> lista = new ArrayList<>();
+        try {
+            cx = Conexion.getConexion();
+            ps = cx.prepareStatement(SQL_ListarLim);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                PersonaDTO p = new PersonaDTO();
+                p.setIdPersona(rs.getInt("IDPERSONA"));
+                p.setNombre(rs.getString("NOMBRE"));
+                p.setApellido(rs.getString("APELLIDO"));
+                p.setDni(rs.getString("DNI"));
+                p.setSexo(rs.getString("SEXO"));
+                p.setCelular(rs.getString("CELULAR"));
+                p.setEdad(rs.getString("EDAD"));
+                p.setCorreo(rs.getString("CORREO"));
+                p.setDireccion(rs.getString("DIRECCION"));
+                p.setUser(rs.getString("USU"));
+                p.setPass(rs.getString("PASS"));
+                p.setCodigo(rs.getString("CODIGO"));
+                lista.add(p);
+            }
+        } catch (Exception e) {
+            System.out.println("Error:" + e);
+        }
+        return lista;
+    }
 }

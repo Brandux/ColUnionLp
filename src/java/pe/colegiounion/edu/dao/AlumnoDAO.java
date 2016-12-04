@@ -28,7 +28,7 @@ public class AlumnoDAO implements Operaciones<AlumnoDTO>{
     private Connection cx;
     private static CallableStatement call;
     
-    private final String SQL_LISTAR = "SELECT NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA WHERE IDROLES =1";
+    private final String SQL_LISTAR = "SELECT IDPERSONA,NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA WHERE IDROLES =1";
     private final String SQL_GUARDAR = "{call Proc_Insert_Alumno(1,?,?,?,?,?,?,?,?,?,?,?)}";
     private final String SQL_UPDATE = "";
     private final String SQL_BUSCAR = "SELECT * FROM ALUMNO WHERE IDALUMNO=?";
@@ -118,6 +118,7 @@ public class AlumnoDAO implements Operaciones<AlumnoDTO>{
             rs = ps.executeQuery();
             while (rs.next()) {
                 PersonaDTO p = new PersonaDTO();
+                p.setIdPersona(rs.getInt("IDPERSONA"));                
                 p.setNombre(rs.getString("NOMBRE"));
                 p.setApellido(rs.getString("APELLIDO"));
                 p.setDni(rs.getString("DNI"));

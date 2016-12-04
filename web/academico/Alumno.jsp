@@ -24,9 +24,10 @@
                         <h2>Lista de Alumnos</h2>  
                         <a href="<%= request.getContextPath()%>/h?op=2" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
                         <div class="full-width center-align" style="margin: 40px 0;">
-                            <table class="striped col s12">
+                            <table class="striped col s10">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>DNI</th>
@@ -46,6 +47,7 @@
                                 <c:forEach items="${lista}" var="datos">                
 
                                     <tr>
+                                        <td><c:out value="${datos.idPersona}"/></td>
                                         <td><c:out value="${datos.nombre}"/></td>
                                         <td><c:out value="${datos.apellido}"/></td>
                                         <td><c:out value="${datos.dni}"/></td>
@@ -58,8 +60,8 @@
                                         <td><c:out value="${datos.pass}"/></td>
                                         <td><c:out value="${datos.codigo}"/></td>
 
-                                        <td><a class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
-                                            <a class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
+                                        <td><a href="a?op=9&id=<c:out value="${datos.idPersona}"/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
+                                        <a href="a?op=8&id=<c:out value="${datos.idPersona}"/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
 
                                     </tr>
                                 </c:forEach>

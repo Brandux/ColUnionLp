@@ -23,11 +23,11 @@ import pe.colegiounion.edu.util.Conexion;
 public class ProfesorDAO implements Operaciones<ProfesorDTO>{
    private PersonaDTO pe = new PersonaDTO();
    private static CallableStatement call;
-    
+    private ProfesorDTO pf = new ProfesorDTO();
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection cx;
-    private final String SQL_LISTAR = "SELECT * FROM PROFESOR";
+    private final String SQL_LISTAR = "SELECT IDPERSONA, NOMBRE, APELLIDO,DNI,SEXO,CELULAR ,EDAD,CORREO,DIRECCION,USU,PASS,CODIGO  FROM PERSONA  WHERE IDROLES =2";
     private final String SQL_GUARDAR = "{call Proc_Insert_Profe(?,2,?,?,?,?,?,?,?,?,?,?,?,?)}";
     private final String SQL_UPDATE = "UPDATE PROFESOR SET codigo = ?, especialidad = ?, idPersona = ? WHERE idProfesor = ?";
     private final String SQL_BUSCAR = "SELECT *FROM PROFESOR WHERE IDPROFESOR=?";
@@ -112,25 +112,36 @@ public class ProfesorDAO implements Operaciones<ProfesorDTO>{
 
     @Override
     public List<ProfesorDTO> listar() {
-        List<ProfesorDTO> lista = new ArrayList<>();
+       return null;
+    }
+    
+    public List<PersonaDTO> listarPf() {
+        List<PersonaDTO> lista = new ArrayList<>();
         try {
             cx = Conexion.getConexion();
             ps = cx.prepareStatement(SQL_LISTAR);
             rs = ps.executeQuery();
             while (rs.next()) {
-                ProfesorDTO pf = new ProfesorDTO();
-                pf.setEstado(rs.getString("estado"));
-                pf.setEspecialidad(rs.getString("especialidad"));
-                pf.setIdPersona(rs.getInt("idPersona"));
-                pf.setIdProfesor(rs.getInt("idProfesor"));
-                lista.add(pf);
+                PersonaDTO p = new PersonaDTO();
+                p.setIdPersona(rs.getInt("IDPERSONA"));
+                p.setNombre(rs.getString("NOMBRE"));
+                p.setApellido(rs.getString("APELLIDO"));
+                p.setDni(rs.getString("DNI"));
+                p.setSexo(rs.getString("SEXO"));
+                p.setCelular(rs.getString("CELULAR"));
+                p.setEdad(rs.getString("EDAD"));
+                p.setCorreo(rs.getString("CORREO"));
+                p.setDireccion(rs.getString("DIRECCION"));
+                p.setUser(rs.getString("USU"));
+                p.setPass(rs.getString("PASS"));
+                p.setCodigo(rs.getString("CODIGO"));
+
+                lista.add(p);
             }
         } catch (Exception e) {
-            System.out.println("Error: " + e);
+            System.out.println("Error:" + e);
         }
         return lista;
-    
     }
-    
     
 }

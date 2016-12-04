@@ -62,10 +62,10 @@
                                             <span class="card-title black-text">Personal Administrativo</span>
                                         </div>
                                         <div class="card-action">
-                                            <a href="#">Registrar</a>
+                                            <a href="a?op=12">Registrar</a>
                                         </div>
                                         <div class="card-action">
-                                            <a href="#">Listar</a>
+                                            <a href="a?op=12">Listar</a>
                                         </div>
                                     </div>
                                 </div>
