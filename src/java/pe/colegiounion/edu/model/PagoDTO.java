@@ -15,17 +15,15 @@ public class PagoDTO {
     int idEstado;
     double precio;
     String fecha;
-    String estado;
     
     public PagoDTO() {
     }
 
-    public PagoDTO(int idMatricula, int idEstado, double precio, String fecha, String estado) {
+    public PagoDTO(int idMatricula, int idEstado, double precio, String fecha) {
         this.idMatricula = idMatricula;
         this.idEstado = idEstado;
         this.precio = precio;
         this.fecha = fecha;
-        this.estado = estado;
     }
 
     public int getIdPago() {
@@ -68,13 +66,6 @@ public class PagoDTO {
         this.fecha = fecha;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
 
     
 }

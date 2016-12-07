@@ -12,19 +12,18 @@ package pe.colegiounion.edu.model;
 public class GradoDTO {
     
     int idGrado;
-    
-    String anoescolar;
     int idEducacion;
-    int idSeccion;
+    String anoescolar;
     String estado;
+    String secciones;
     public GradoDTO() {
     }
 
-    public GradoDTO(String anoescolar, int idEducacion, int idSeccion, String estado) {
-        this.anoescolar = anoescolar;
+    public GradoDTO(int idEducacion, String anoescolar, String estado, String secciones) {
         this.idEducacion = idEducacion;
-        this.idSeccion = idSeccion;
+        this.anoescolar = anoescolar;
         this.estado = estado;
+        this.secciones = secciones;
     }
 
     public int getIdGrado() {
@@ -35,14 +34,6 @@ public class GradoDTO {
         this.idGrado = idGrado;
     }
 
-    public String getAnoescolar() {
-        return anoescolar;
-    }
-
-    public void setAnoescolar(String anoescolar) {
-        this.anoescolar = anoescolar;
-    }
-
     public int getIdEducacion() {
         return idEducacion;
     }
@@ -51,12 +42,12 @@ public class GradoDTO {
         this.idEducacion = idEducacion;
     }
 
-    public int getIdSeccion() {
-        return idSeccion;
+    public String getAnoescolar() {
+        return anoescolar;
     }
 
-    public void setIdSeccion(int idSeccion) {
-        this.idSeccion = idSeccion;
+    public void setAnoescolar(String anoescolar) {
+        this.anoescolar = anoescolar;
     }
 
     public String getEstado() {
@@ -67,7 +58,13 @@ public class GradoDTO {
         this.estado = estado;
     }
 
-    
-    
+    public String getSecciones() {
+        return secciones;
+    }
+
+    public void setSecciones(String secciones) {
+        this.secciones = secciones;
+    }
+
     
 }

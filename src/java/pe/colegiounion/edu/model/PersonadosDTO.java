@@ -5,12 +5,11 @@
  */
 package pe.colegiounion.edu.model;
 
-
 /**
  *
  * @author Brandukosky
  */
-public class PersonaDTO {
+public class PersonadosDTO {
     int idPersona;
     int idRoles ;
     String nombre;
@@ -25,12 +24,12 @@ public class PersonaDTO {
     String pass;
     String codigo;
     String estado;
-    
-    
-    public PersonaDTO() {
+    int idAlumno;
+
+    public PersonadosDTO() {
     }
 
-    public PersonaDTO(int idRoles, String nombre, String apellido, String dni, String sexo, String celular, String edad, String correo, String direccion, String user, String pass, String codigo) {
+    public PersonadosDTO(int idRoles, String nombre, String apellido, String dni, String sexo, String celular, String edad, String correo, String direccion, String user, String pass, String codigo, String estado, int idAlumno) {
         this.idRoles = idRoles;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -43,6 +42,8 @@ public class PersonaDTO {
         this.user = user;
         this.pass = pass;
         this.codigo = codigo;
+        this.estado = estado;
+        this.idAlumno = idAlumno;
     }
 
     public int getIdPersona() {
@@ -157,4 +158,11 @@ public class PersonaDTO {
         this.estado = estado;
     }
 
+    public int getIdAlumno() {
+        return idAlumno;
+    }
+
+    public void setIdAlumno(int idAlumno) {
+        this.idAlumno = idAlumno;
+    }
 }

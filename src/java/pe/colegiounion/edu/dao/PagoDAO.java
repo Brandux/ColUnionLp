@@ -24,8 +24,8 @@ public class PagoDAO implements Operaciones<PagoDTO>{
     private ResultSet rs;
     private Connection cx;
     private final String SQL_LISTAR = "SELECT * FROM PAGO";
-    private final String SQL_GUARDAR = "INSERT INTO PAGO (IDPAGO, IDMATRICULA, IDESTADO, PRECIO, FECHA, ESTADO) VALUES (NULL, ?, ?, ?, ? ,?)";
-    private final String SQL_UPDATE = "UPDATE PAGO SET IDMATRICULA = ?, IDESTADO = ?, PRECIO = ?, FECHA =? ,ESTADO=?  WHERE IDPAGO = ?";
+    private final String SQL_GUARDAR = "INSERT INTO PAGO (IDPAGO, IDMATRICULA, IDESTADO, PRECIO, FECHA) VALUES (NULL, ?, ?, ?, ? )";
+    private final String SQL_UPDATE = "UPDATE PAGO SET IDMATRICULA = ?, IDESTADO = ?, PRECIO = ?, FECHA =?   WHERE IDPAGO = ?";
     private final String SQL_BUSCAR = "SELECT *FROM PAGO WHERE IDPAGO=?";
     private final String SQL_ELIMINAR = "DELETE FROM PAGO WHERE IDPAGO = ?";
 
@@ -40,7 +40,6 @@ public class PagoDAO implements Operaciones<PagoDTO>{
             ps.setInt(2, p.getIdEstado());
             ps.setDouble(3, p.getPrecio());
             ps.setString(4, p.getFecha());
-            ps.setString(5, p.getEstado());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -75,8 +74,7 @@ public class PagoDAO implements Operaciones<PagoDTO>{
             ps.setInt(2, p.getIdEstado());
             ps.setDouble(3, p.getPrecio());
             ps.setString(4, p.getFecha());
-            ps.setString(5, p.getEstado());
-            ps.setInt(6, p.getIdPago());
+            ps.setInt(5, p.getIdPago());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -99,7 +97,6 @@ public class PagoDAO implements Operaciones<PagoDTO>{
                 p.setIdEstado(rs.getInt("IDESTADO"));
                 p.setPrecio(rs.getDouble("PRECIO"));
                 p.setFecha(rs.getString("FECHA"));
-                p.setEstado(rs.getString("ESTADO"));
                 p.setIdPago(rs.getInt("IDPAGO"));
             }
         } catch (Exception e) {
@@ -122,7 +119,6 @@ public class PagoDAO implements Operaciones<PagoDTO>{
                 p.setIdEstado(rs.getInt("IDESTADO"));
                 p.setPrecio(rs.getDouble("PRECIO"));
                 p.setFecha(rs.getString("FECHA"));
-                p.setEstado(rs.getString("ESTADO"));
                 p.setIdPago(rs.getInt("IDPAGO"));
                 lista.add(p);
             }

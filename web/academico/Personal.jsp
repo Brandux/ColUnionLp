@@ -20,7 +20,7 @@
                 <article class="col s12">
                     <br>
                     <h2 style="text-align: center;">Lista de Directores</h2>  
-                    <a href="<%= request.getContextPath()%>/h?op=2" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    <a href="<%= request.getContextPath()%>/a?op=20" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
                     <div class="full-width center-align" style="margin: 40px 0;">
                         <table class="striped col s12">
                             <thead>
@@ -69,7 +69,7 @@
                     <article class="col s12">
                     <br>
                     <h2 style="text-align: center;">Lista de Secretarias</h2>  
-                    <a href="<%= request.getContextPath()%>/h?op=2" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    <a href="<%= request.getContextPath()%>/a?op=20" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
                     <div class="full-width center-align" style="margin: 40px 0;">
                         <table class="striped col s12">
                             <thead>
@@ -120,7 +120,7 @@
                     <article class="col s12">
                         <br>
                         <h2 style="text-align: center;">Personal de Limpieza</h2>  
-                        <a href="<%= request.getContextPath()%>/h?op=2" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    <a href="<%= request.getContextPath()%>/a?op=20" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
                         <div class="full-width center-align" style="margin: 40px 0;">
                             <table class="striped col s12">
                                 <thead>

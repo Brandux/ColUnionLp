@@ -16,18 +16,16 @@ public class MatriculaDTO {
     int idEstado;
     int idAlumno;
     String fecha;
-    String estado;
     
      
     public MatriculaDTO() {
     }
 
-    public MatriculaDTO(int idGrado, int idEstado, int idAlumno, String fecha, String estado) {
+    public MatriculaDTO(int idGrado, int idEstado, int idAlumno, String fecha) {
         this.idGrado = idGrado;
         this.idEstado = idEstado;
         this.idAlumno = idAlumno;
         this.fecha = fecha;
-        this.estado = estado;
     }
 
     public int getIdMatricula() {
@@ -70,13 +68,6 @@ public class MatriculaDTO {
         this.fecha = fecha;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
+  
     
 }

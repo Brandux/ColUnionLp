@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <%@include file="../WEB-INF/jspf/jspf_home/head_al.jspf" %>
+        <%@include file="../../WEB-INF/jspf/jspf_home/head_al.jspf" %>
         <title>Portal del Alumno </title>
         
     </head>
@@ -28,7 +28,7 @@
                             <div class="col s4">
                                 <div class="card">
                                     <div class="card-image">
-                                        <img src="../Imagenes/user.png">
+                                        <img src="Imagenes/user.png">
                                         <span class="card-title black-text ">Cursos</span>
                                     </div>
                                     <div class="card-action">
@@ -40,7 +40,7 @@
                             <div class="col s4">
                                 <div class="card">
                                     <div class="card-image">
-                                        <img src="../Imagenes/icoprofesor.png">
+                                        <img src="Imagenes/icoprofesor.png">
                                         <span class="card-title black-text">Notar</span>
                                     </div>
 
@@ -53,7 +53,7 @@
                             <div class="col s4">
                                 <div class="card">
                                     <div class="card-image">
-                                        <img src="../Imagenes/iconAdmin.jpg">
+                                        <img src="Imagenes/iconAdmin.jpg">
                                         <span class="card-title black-text">Horarios</span>
                                     </div>
                                     <div class="card-action">

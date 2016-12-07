@@ -29,7 +29,9 @@ public class AlumnoDAO implements Operaciones<AlumnoDTO>{
     private static CallableStatement call;
     
     private final String SQL_LISTAR = "SELECT IDPERSONA,NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA WHERE IDROLES =1";
-    private final String SQL_GUARDAR = "{call Proc_Insert_Alumno(1,?,?,?,?,?,?,?,?,?,?,?)}";
+    private final String SQL_LISTARR = "SELECT * FROM ALUMNO";
+    private final String SQL_GUARDAR = "EXECUTE Proc_IU_ALUMNO(0,? ,?,?,?,?,?,?,?,?,?,?,?);";
+    
     private final String SQL_UPDATE = "";
     private final String SQL_BUSCAR = "SELECT * FROM ALUMNO WHERE IDALUMNO=?";
     private final String SQL_ELIMINAR = "DELETE FROM ALUMNO WHERE IDALUMNO = ?";
@@ -40,7 +42,6 @@ public class AlumnoDAO implements Operaciones<AlumnoDTO>{
         int op =0;
         try {
             cx = Conexion.getConexion();
-            call = cx.prepareCall(SQL_GUARDAR);
             call.setString(1, p.getNombre());
             call.setString(2, p.getApellido());
             call.setString(3, p.getDni());
@@ -108,7 +109,21 @@ public class AlumnoDAO implements Operaciones<AlumnoDTO>{
 
     @Override
     public List<AlumnoDTO> listar() {
-        return null;
+        List<AlumnoDTO> lista = new ArrayList<>();
+        try {
+            cx = Conexion.getConexion();
+            ps = cx.prepareStatement(SQL_LISTARR);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                AlumnoDTO a = new AlumnoDTO();
+                a.setIdAlumno(rs.getInt("IDALUMNO"));
+                a.setEstado(rs.getString("ESTADO"));
+                lista.add(a);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " +e);
+        }
+        return lista;
     }
     public List<PersonaDTO> listarAl() {
         List<PersonaDTO> lista = new ArrayList<>();

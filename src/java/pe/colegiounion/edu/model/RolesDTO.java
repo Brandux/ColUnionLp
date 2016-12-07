@@ -11,15 +11,13 @@ package pe.colegiounion.edu.model;
  */
 public class RolesDTO {
     int idRoles;
-    int idPersona;
     String descripcion;
     String estado;
     
     public RolesDTO() {
     }
 
-    public RolesDTO(int idPersona, String descripcion, String estado) {
-        this.idPersona = idPersona;
+    public RolesDTO(String descripcion, String estado) {
         this.descripcion = descripcion;
         this.estado = estado;
     }
@@ -30,14 +28,6 @@ public class RolesDTO {
 
     public void setIdRoles(int idRoles) {
         this.idRoles = idRoles;
-    }
-
-    public int getIdPersona() {
-        return idPersona;
-    }
-
-    public void setIdPersona(int idPersona) {
-        this.idPersona = idPersona;
     }
 
     public String getDescripcion() {

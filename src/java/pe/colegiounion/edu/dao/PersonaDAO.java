@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import pe.colegiounion.edu.interfaces.Operaciones;
 import pe.colegiounion.edu.model.PersonaDTO;
 import pe.colegiounion.edu.util.Conexion;
@@ -25,56 +26,54 @@ public class PersonaDAO implements Operaciones<PersonaDTO>{
     private Connection cx;
     
     
-    private  final String SQL_Validar="SELECT * FROM PERSONA WHERE USU=? AND PASS=?";
     private final String SQL_LISTAR = "SELECT * FROM PERSONA WHERE IDROLES =5";
     private final String SQL_ListarSecre ="SELECT IDPERSONA,NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA  WHERE IDROLES =3 ";
     private final String SQL_ListarDirec ="SELECT IDPERSONA, NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA  WHERE IDROLES =4";
     private final String SQL_ListarLim ="SELECT IDPERSONA, NOMBRE,APELLIDO ,DNI,SEXO,CELULAR ,EDAD, CORREO, DIRECCION , USU,PASS,CODIGO FROM PERSONA WHERE IDROLES =5";
     
-    private final String SQL_GUARDAR = "INSERT INTO PERSONA (IDPERSONA,IDROLES, NOMBRE, APELLIDO, DNI,SEXO, CELULAR, EDAD, CORREO, DIRECCION, USU, PASS, CODIGO, ESTADO) VALUES (NULL, ?,?,?,?, ?, ?, ?, ?, ?,?, ?, ?, ?)";
+    private final String SQL_GUARDAR = "INSERT INTO PERSONA  VALUES (0, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";
     private final String SQL_UPDATE = "UPDATE PERSONA SET IDROLES =?, NOMBRE = ?, APELLIDO = ?, DNI = ?, SEXO = ?, CELULAR = ?, EDAD = ?, CORREO = ?, DIRECCION = ?, USU =?,  PASS = ? WHERE IDPERSONA = ?";
     private final String SQL_BUSCAR = "SELECT *FROM PERSONA WHERE IDPERSONA=?";
     private final String SQL_ELIMINAR ="DELETE FROM PERSONA WHERE IDPERSONA = ?";
 
     
     public int validar(String user, String pass) {
-        int op = 0;
+        int role = 0;
         try {
             cx = Conexion.getConexion();
-            ps = cx.prepareStatement(SQL_Validar);
-            ps.setString(1, user);
-            ps.setString(2, pass);
+           String sql ="SELECT IDROLES FROM PERSONA WHERE USU= '"+ user +"' AND PASS= '"+ pass +"'";
+            ps = cx.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                op = 1;
+                role = rs.getInt(1);
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
-        return op;
+        return role;
     }
     
     @Override
     public int create(PersonaDTO p) {
-        
         int op=0;
-        
         try {
             cx= Conexion.getConexion();
             ps = cx. prepareStatement(SQL_GUARDAR);
-            ps.setString(1, p.getNombre());
-            ps.setString(2, p.getApellido());
-            ps.setString(3,p.getDni());
-            ps.setString(4, p.getSexo());
-            ps.setString(5, p.getCelular());
-            ps.setString(6, p.getEdad());
-            ps.setString(7, p.getCorreo());
-            ps.setString(8, p.getDireccion());
-            ps.setString(9, p.getUser());
-            ps.setString(10, p.getPass());
+            ps.setInt(1, p.getIdRoles());
+            ps.setString(2, p.getNombre());
+            ps.setString(3, p.getApellido());
+            ps.setString(4,p.getDni());
+            ps.setString(5, p.getSexo());
+            ps.setString(6, p.getCelular());
+            ps.setString(7, p.getEdad());
+            ps.setString(8, p.getCorreo());
+            ps.setString(9, p.getDireccion());
+            ps.setString(10, p.getUser());
+            ps.setString(11, p.getPass());
+            ps.setString(12, p.getCodigo());
             op = ps.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Error: " +e);
+            JOptionPane.showMessageDialog(null, "Error : " +e);
         }
         return op;
     }

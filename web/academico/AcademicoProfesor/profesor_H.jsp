@@ -27,7 +27,7 @@
                             <div class="col s6">
                                 <div class="card">
                                     <div class="card-image">
-                                        <img src="../Imagenes/user.png">
+                                        <img src="Imagenes/user.png">
                                         <span class="card-title black-text ">Notas del alumno</span>
                                     </div>
                                     <div class="card-action">
@@ -39,7 +39,7 @@
                             <div class="col s6">
                                 <div class="card">
                                     <div class="card-image">
-                                        <img src="../Imagenes/icoprofesor.png">
+                                        <img src="Imagenes/icoprofesor.png">
                                         <span class="card-title black-text">Horarios</span>
                                     </div>
 
@@ -67,6 +67,6 @@
             </ul>
         </div>        
 
-        <%@include file="../../WEB-INF/jspf/jspf_home/header_pr.jspf" %>
+        <%@include file="../../WEB-INF/jspf/jspf_home/ScriptHome.jspf" %>
     </body>
 </html>

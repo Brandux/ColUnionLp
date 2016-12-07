@@ -3,7 +3,7 @@
     Created on : 03/12/2016, 12:51:09 AM
     Author     : Brandukosky
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

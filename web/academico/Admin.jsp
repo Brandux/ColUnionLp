@@ -30,7 +30,7 @@
                                             <span class="card-title black-text ">Alumnos</span>
                                         </div>
                                         <div class="card-action">
-                                            <a href="a?op=5">Registrar</a>
+                                            <a href="a?op=20">Registrar</a>
                                         </div>
                                         <div class="card-action">
                                             <a href="a?op=5">Listar</a>
@@ -62,7 +62,7 @@
                                             <span class="card-title black-text">Personal Administrativo</span>
                                         </div>
                                         <div class="card-action">
-                                            <a href="a?op=12">Registrar</a>
+                                            <a href="a?op=20">Registrar</a>
                                         </div>
                                         <div class="card-action">
                                             <a href="a?op=12">Listar</a>

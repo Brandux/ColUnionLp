@@ -24,8 +24,8 @@ public class Grado_cursoDAO implements Operaciones<Grado_CursoDTO>{
     private ResultSet rs;
     private Connection cx;
     private final String SQL_LISTAR = "SELECT * FROM GRADO_CURSO";
-    private final String SQL_GUARDAR = "INSERT INTO GRADO_CURSO (IDGRADOCURSO,IDPROFESOR, IDHORARIO, IDGRADO, IDCURSO, ESTADO) VALUES (NULL, ?, ?, ?, ?,?)";
-    private final String SQL_UPDATE = "UPDATE GRADO_CURSO SET IDPROFESOR = ?, IDHORARIO = ?, IDGRADO = ?, IDCURSO = ? ESTADO =? WHERE idGrado_curso = ?";
+    private final String SQL_GUARDAR = "INSERT INTO GRADO_CURSO (IDGRADOCURSO,IDPROFESOR, IDHORARIO, IDGRADO, IDCURSO) VALUES (0, ?, ?, ?, ?)";
+    private final String SQL_UPDATE = "UPDATE GRADO_CURSO SET IDPROFESOR = ?, IDHORARIO = ?, IDGRADO = ?, IDCURSO = ?  WHERE idGrado_curso = ?";
     private final String SQL_BUSCAR = "SELECT *FROM GRADO_CURSO WHERE IDGRADOCURSO=?";
     private final String SQL_ELIMINAR = "DELETE FROM GRADO_CURSO WHERE IDGRADOCURSO = ?";
 
@@ -40,7 +40,6 @@ public class Grado_cursoDAO implements Operaciones<Grado_CursoDTO>{
             ps.setInt(2, p.getIdHorario());
             ps.setInt(3, p.getIdGrado());
             ps.setInt(4, p.getIdCurso());
-            ps.setString(5, p.getEstado());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -74,7 +73,6 @@ public class Grado_cursoDAO implements Operaciones<Grado_CursoDTO>{
             ps.setInt(2, p.getIdHorario());
             ps.setInt(3, p.getIdGrado());
             ps.setInt(4, p.getIdCurso());
-            ps.setString(5, p.getEstado());
             ps.setInt(6, p.getIdGradocurso());
             op = ps.executeUpdate();
         } catch (Exception e) {
@@ -97,7 +95,6 @@ public class Grado_cursoDAO implements Operaciones<Grado_CursoDTO>{
                 gc.setIdHorario(rs.getInt("IDHORARIO"));
                 gc.setIdGrado(rs.getInt("IDGRADO"));
                 gc.setIdCurso(rs.getInt("IDCURSO"));
-                gc.setEstado(rs.getString("ESTADO"));
                 gc.setIdGradocurso(rs.getInt("IDGRADOCURSO"));
             }
         } catch (Exception e) {
@@ -119,7 +116,6 @@ public class Grado_cursoDAO implements Operaciones<Grado_CursoDTO>{
                 gc.setIdHorario(rs.getInt("IDHORARIO"));
                 gc.setIdGrado(rs.getInt("IDGRADO"));
                 gc.setIdCurso(rs.getInt("IDCURSO"));
-                gc.setEstado(rs.getString("ESTADO"));
                 gc.setIdGradocurso(rs.getInt("IDGRADOCURSO"));
                 lista.add(gc);
             }

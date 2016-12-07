@@ -22,7 +22,7 @@
                 <li>
                     <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">verified_user</i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i>Cursos</a>
                     <ul class="full-width">
-                        <li><a href="a?op=1" class="waves-effect waves-light">Horarios</a></li>
+                        <li><a href="a?op=19" class="waves-effect waves-light">Horarios</a></li>
                         <li class="NavLateralDivider"></li>
                         <li><a href="a?op=2" class="waves-effect waves-light">Notas</a></li>
                     </ul>
@@ -33,7 +33,7 @@
                     <ul class="full-width">
                         <li><a href="a?op=3" class="waves-effect waves-light">Registro Matricula</a></li>
                         <li class="NavLateralDivider"></li>
-                        <li><a href="a?op=4" class="waves-effect waves-light">Pagos</a></li>
+                        <li><a href="a?op=21" class="waves-effect waves-light">Pagos</a></li>
                     </ul>
                 </li>
                 <li class="NavLateralDivider"></li>

@@ -14,12 +14,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pe.colegiounion.edu.dao.AlumnoDAO;
+import pe.colegiounion.edu.dao.CursoDAO;
+import pe.colegiounion.edu.dao.EstadoDAO;
+import pe.colegiounion.edu.dao.GradoDAO;
+import pe.colegiounion.edu.dao.Grado_cursoDAO;
 import pe.colegiounion.edu.dao.HorarioDAO;
 import pe.colegiounion.edu.dao.MatriculaDAO;
 import pe.colegiounion.edu.dao.NotasDAO;
 import pe.colegiounion.edu.dao.PagoDAO;
 import pe.colegiounion.edu.dao.PersonaDAO;
 import pe.colegiounion.edu.dao.ProfesorDAO;
+import pe.colegiounion.edu.dao.RolesDAO;
+import pe.colegiounion.edu.model.Grado_CursoDTO;
+import pe.colegiounion.edu.model.MatriculaDTO;
+import pe.colegiounion.edu.model.PagoDTO;
+import pe.colegiounion.edu.model.PersonaDTO;
 
 /**
  *
@@ -30,6 +39,8 @@ public class Admin extends HttpServlet {
         int op =0;
         String pagina ;
         private RequestDispatcher dispatcher;
+        private Grado_cursoDAO gc = new Grado_cursoDAO();
+        private EstadoDAO e = new EstadoDAO();
         private PersonaDAO p = new PersonaDAO();
         private HorarioDAO h = new HorarioDAO();
         private NotasDAO n = new NotasDAO();
@@ -37,6 +48,9 @@ public class Admin extends HttpServlet {
         private PagoDAO pa = new PagoDAO();
         private AlumnoDAO al = new AlumnoDAO();
         private ProfesorDAO pf = new ProfesorDAO();
+        private RolesDAO ro = new RolesDAO();
+        private GradoDAO go = new GradoDAO();
+        private CursoDAO co = new CursoDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -96,17 +110,23 @@ public class Admin extends HttpServlet {
                 break;
             case 3:
                 pagina = "/academico/Matricula.jsp";
+                request.setAttribute("grado",go.listar() );
+                request.setAttribute("estado", e.listar());
+                request.setAttribute("al",al.listarAl());
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
             case 4:
                 pagina = "/academico/Pago.jsp";
+                request.setAttribute("matri", m.listar());
+                request.setAttribute("estado", e.listar());
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
             case 5: 
                 pagina ="/academico/Alumno.jsp";
                 request.setAttribute("lista", al.listarAl());
+                request.setAttribute("ali", al.listar());
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
@@ -117,7 +137,11 @@ public class Admin extends HttpServlet {
                 dispatcher.forward(request, response);
                 break;
             case 7:
-                pagina = "/academico/RgCursos.jsp";
+                pagina = "/academico/FormCurso.jsp";
+                request.setAttribute("profe", pf.listarPf());
+                request.setAttribute("grado",go.listar() );
+                request.setAttribute("curso", co.listar());
+                request.setAttribute("hora", h.listar());
                 dispatcher = getServletContext().getRequestDispatcher(pagina);
                 dispatcher.forward(request, response);
                 break;
@@ -213,8 +237,26 @@ public class Admin extends HttpServlet {
              case 18:
                  //aqui ira el update para editar  limpieza
                  break;
-                 
              case 19:
+                 pagina = "/academico/ListHorario.jsp";
+                 request.setAttribute("hor", h.listar());
+                 dispatcher = getServletContext().getRequestDispatcher(pagina);
+                 dispatcher.forward(request, response);
+                break;
+             case 20:
+                 //aqui va RegPersona 
+                pagina = "/academico/RegPersona.jsp";
+                request.setAttribute("rol", ro.listar());
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+             case 21:    
+                 //aqui va ListPago
+                 pagina = "/academico/ListPago.jsp";
+                 request.setAttribute("pag", pa.listar());
+                 request.setAttribute("pag", pa.listar());
+                 dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
                  break;
         }
     }
@@ -231,7 +273,80 @@ public class Admin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        // processRequest(request, response);
-        
+        op = Integer.parseInt(request.getParameter("op"));
+        switch (op) {
+            case 0:
+                pagina = "/academico/Admin.jsp";
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+            case 1 :
+              int rol = Integer.parseInt(request.getParameter("roles"));
+              
+              String name = request.getParameter("nane");
+              String apell = request.getParameter("apell");
+              String dni = request.getParameter("dni");
+              String sex = request.getParameter("Sexo");
+              String celu = request.getParameter("cel");
+              String edad = request.getParameter("edad");
+              String email = request.getParameter("email");
+              String dire = request.getParameter("direc");
+              String usu = request.getParameter("usu");
+              String pass = request.getParameter("pass");
+              String cod = request.getParameter("cod");
+              PersonaDTO pe = new PersonaDTO(rol, name, apell, dni, sex, celu, edad,email, dire, usu, pass, cod);
+                if (p.create(pe)>0) {
+                    pagina ="/a?op=0";
+                }else{
+                    pagina = "/h?op=0";
+                }
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+              break;
+            case 2: 
+                int prof = Integer.parseInt(request.getParameter("profesores"));
+                int grado =Integer.parseInt(request.getParameter("grado"));
+                int curso =Integer.parseInt(request.getParameter("curso"));
+                int hora =Integer.parseInt(request.getParameter("hora"));
+                Grado_CursoDTO g = new Grado_CursoDTO(prof, hora, grado, curso);
+                if (gc.create(g)>0) {
+                    pagina = "/a?op=0";
+                }else{
+                    pagina ="/h?op=0";
+                }
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+            case 3:
+                int gra = Integer.parseInt(request.getParameter("grado"));
+                int estado = Integer.parseInt(request.getParameter("estado"));
+                int alum = Integer.parseInt(request.getParameter("alumno"));
+                String fecha = request.getParameter("fecha");
+                MatriculaDTO ma = new MatriculaDTO(gra, estado, alum, fecha);
+                if (m.create(ma)>0){
+                    pagina = "/a?op=0";
+                }else{
+                    pagina ="/h?op=0";
+                }
+                 dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+                
+            case 4 : 
+                int matri = Integer.parseInt(request.getParameter("matri"));
+                int estdo = Integer.parseInt(request.getParameter("estado"));
+                double precio = Double.parseDouble(request.getParameter("precio"));
+                String fec =  request.getParameter("fecha");
+                PagoDTO pag = new PagoDTO(matri, estdo, precio,fec);
+                if(pa.create(pag)>0){
+                     pagina = "/a?op=0";
+                }else{
+                     pagina = "/h?op=0";
+                }
+                dispatcher = getServletContext().getRequestDispatcher(pagina);
+                dispatcher.forward(request, response);
+                break;
+        }
     }
 
     /**

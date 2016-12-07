@@ -25,8 +25,8 @@ public class GradoDAO implements Operaciones<GradoDTO>{
     private ResultSet rs;
     private Connection cx;
     private final String SQL_LISTAR = "SELECT * FROM GRADO";
-    private final String SQL_GUARDAR = "INSERT INTO GRADO (IDGRADO,IDEDUCACION,IDSECCION,ANOESCOLAR, ESTADO) VALUES (NULL, ?, ?, ?,?)";
-    private final String SQL_UPDATE = "UPDATE GRADO SET IDEDUCACION = ?, IDSECCION = ?, ANOESCOLAR =? , ESTADO =? WHERE IDESTADO = ?";
+    private final String SQL_GUARDAR = "INSERT INTO GRADO (IDGRADO,IDEDUCACION,ANOESCOLAR, ESTADO, SECCIONES) VALUES (NULL, ?, ?, ?,?)";
+    private final String SQL_UPDATE = "UPDATE GRADO SET IDEDUCACION = ?,  ANOESCOLAR =? , ESTADO =? , SECCIONES =? WHERE IDESTADO = ?";
     private final String SQL_BUSCAR = "SELECT *FROM GRADO WHERE IDGRADO=?";
     private final String SQL_ELIMINAR = "DELETE FROM GRADO WHERE IDGRADO = ?";
     
@@ -38,9 +38,9 @@ public class GradoDAO implements Operaciones<GradoDTO>{
             cx = Conexion.getConexion();
             ps = cx.prepareStatement(SQL_GUARDAR);
             ps.setInt(1, p.getIdEducacion());
-            ps.setInt(2, p.getIdSeccion());
-            ps.setString(3, p.getAnoescolar());
-            ps.setString(4, p.getEstado());
+            ps.setString(2, p.getAnoescolar());
+            ps.setString(3, p.getEstado());
+            ps.setString(4, p.getSecciones());
             op= ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error:" +e );
@@ -69,9 +69,9 @@ public class GradoDAO implements Operaciones<GradoDTO>{
             cx = Conexion.getConexion();
             ps= cx.prepareStatement(SQL_UPDATE);
             ps.setInt(1, p.getIdEducacion());
-            ps.setInt(2, p.getIdSeccion());
-            ps.setString(3, p.getAnoescolar());
-            ps.setString(4, p.getEstado());
+            ps.setString(2, p.getAnoescolar());
+            ps.setString(3, p.getEstado());
+            ps.setString(4, p.getSecciones());
             ps.setInt(5, p.getIdGrado());
             op= ps.executeUpdate();
         } catch (Exception e) {
@@ -91,9 +91,9 @@ public class GradoDAO implements Operaciones<GradoDTO>{
             rs = ps.executeQuery();
             while (rs.next()) {                
                 g.setIdEducacion(rs.getInt("IDEDUCACION"));
-                g.setIdSeccion(rs.getInt("IDSECCION"));
                 g.setAnoescolar(rs.getString("ANOESCOLAR"));
                 g.setEstado(rs.getString("ESTADI"));
+                g.setSecciones(rs.getString("SECCIONES"));
                 g.setIdGrado(rs.getInt("IDGRADO"));
             }
         } catch (Exception e) {
@@ -111,11 +111,11 @@ public class GradoDAO implements Operaciones<GradoDTO>{
             rs = ps.executeQuery();
             while (rs.next()) {                
                 GradoDTO g = new GradoDTO();
-                g.setIdEducacion(rs.getInt("IDEDUCACION"));
-                g.setIdSeccion(rs.getInt("IDSECCION"));
-                g.setAnoescolar(rs.getString("ANOESCOLAR"));
-                g.setEstado(rs.getString("ESTADI"));
                 g.setIdGrado(rs.getInt("IDGRADO"));
+                g.setIdEducacion(rs.getInt("IDEDUCACION"));
+                g.setAnoescolar(rs.getString("ANOESCOLAR"));
+                g.setEstado(rs.getString("ESTADO"));
+                g.setSecciones(rs.getString("SECCIONES"));
                 lista.add(g);
             }
         } catch (Exception e) {

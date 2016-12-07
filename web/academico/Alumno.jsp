@@ -22,7 +22,7 @@
                 <div class="row">
                     <article class="col s12">
                         <h2>Lista de Alumnos</h2>  
-                        <a href="<%= request.getContextPath()%>/h?op=2" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        <a href="<%= request.getContextPath()%>/a?op=20" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
                         <div class="full-width center-align" style="margin: 40px 0;">
                             <table class="striped col s10">
                                 <thead>
@@ -61,8 +61,7 @@
                                         <td><c:out value="${datos.codigo}"/></td>
 
                                         <td><a href="a?op=9&id=<c:out value="${datos.idPersona}"/>" class="waves-effect waves-light btn-flat"><i class="material-icons">mode_edit</i></a>
-                                        <a href="a?op=8&id=<c:out value="${datos.idPersona}"/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
-
+                                            <a href="a?op=8&id=<c:out value="${alumno.idPersona}"/>" class="waves-effect waves-light btn-flat"><i class="material-icons">close </i></a></td>
                                     </tr>
                                 </c:forEach>
                                     

@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import pe.colegiounion.edu.dao.AlumnoDAO;
 import pe.colegiounion.edu.dao.PersonaDAO;
+import pe.colegiounion.edu.dao.PersonadosDAO;
 import pe.colegiounion.edu.model.PersonaDTO;
+import pe.colegiounion.edu.model.PersonadosDTO;
 import pe.colegiounion.edu.util.Conexion;
 
 /**
@@ -20,7 +22,8 @@ public class Test {
    static  PersonaDAO ao = new PersonaDAO();
    static AlumnoDAO al = new AlumnoDAO();
     static List<PersonaDTO> lista = new ArrayList<>();
-
+    static List<PersonadosDTO> listas = new ArrayList<>();
+    static PersonadosDAO po = new PersonadosDAO();
     /**
      * @param args the command line arguments
      */
@@ -28,6 +31,7 @@ public class Test {
 conexion();
     validar();
     listar();
+    crear();
     }
     public static void conexion() {
         if (Conexion.getConexion()!= null) {
@@ -47,9 +51,18 @@ conexion();
         
     }
     public static void listar() {
-        lista = al.listarAl();
+        listas = po.listar();
         for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i).getNombre());
+            System.out.println(lista.get(i).getIdPersona());
+        }
+    }
+    
+    public static void crear(){
+        PersonadosDTO a = new PersonadosDTO(2, "q", "q", "q", "q", "q", "q", "q", "q", "q", "q", "q", "q", 1);
+        if(po.create(a)>0){
+            System.out.println("Si");
+        }else{
+            System.out.println("No");
         }
     }
 }

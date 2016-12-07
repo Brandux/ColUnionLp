@@ -19,7 +19,7 @@
                 <div class="row">
                     <article class="col s12">
                          <h2>Lista de Profesores</h2>  
-                        <a class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        <a href="<%= request.getContextPath()%>/a?op=20" role="button" class="btn-floating btn-flat waves-effect waves-light red"><i class="material-icons">add</i></a>
                         <div class="full-width center-align" style="margin: 40px 0;">
                             <table class="striped col s12">
                                 <thead>

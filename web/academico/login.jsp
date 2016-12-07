@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,7 @@
         <%@include file="../WEB-INF/jspf/jspf_home/headLogin.jspf" %>
         <script src="../js/validarRegister.js" type="text/javascript"></script>
     </head>
-    <body style="background-image: url('../Imagenes/cards.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+    <body style="background-image: url('Imagenes/cards.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
 
     <body class="font-cover" id="login">
 
@@ -24,18 +25,18 @@
             </div>
             <form  method="post" action="h" id="forminicio">
                 <div class="input-field">
-                    <input id="user"  name="user" type="text" class="validate" id="txtuser">
+                    <input id="user" class="validate" name="user" type="text"  id="txtuser" pattern="[A-Za-z0]{3,15}">
                     <label for="UserName"><i class="zmdi zmdi-account"></i>&nbsp; Usuario</label>
                 </div>
 
                 <div class="input-field col s12">
-                    <input id="clave" name="clave" type="password" class="validate" id="txtclave">
+                    <input id="clave" name="clave" type="password" class="validate" id="txtclave" pattern="{6}" required/>
                     <label for="Password"><i class="zmdi zmdi-lock"></i>&nbsp; Contraseña</label>
                     <input type="hidden" name="op" value="2" class="form-control">
 
                 </div>
 
-                <button  id="btniniciar" name="boton"  class="waves-effect waves-teal btn-flat">Ingresar &nbsp; <i class="zmdi zmdi-mail-send"></i></button>
+                <button  id="btniniciar" name="ingresa"  class="waves-effect waves-teal btn-flat">Ingresar &nbsp; <i class="zmdi zmdi-mail-send"></i></button>
 
                 </a>      
                 

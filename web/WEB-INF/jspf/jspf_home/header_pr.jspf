@@ -8,22 +8,25 @@
             Colegio Unión <i class="zmdi zmdi-close NavLateral-title-btn ShowHideMenu"></i>
         </header>
         <figure class="full-width NavLateral-logo">
-            <img src="../../../academico/AcademicoProfesor/profesor_H.jsp" alt="material-logo" class="responsive-img center-box">
+          <img src="Imagenes/loginHOmeicon.jpg" alt="material-logo" class="responsive-img center-box">
             <figcaption class="center-align">Portal Estudiantil</figcaption>
         </figure> 
 
         <div class="NavLateral-Nav">
             <ul class="full-width">
                 <li>
-                    <a href="../../../academico/AcademicoProfesor/profesor_H.jsp" class="waves-effect waves-light"><i class="large material-icons">web</i> Inicio</a>
+                    <a href="#" class="waves-effect waves-light"><i class="large material-icons">web</i> Inicio</a>
                 </li>
                 <li class="NavLateralDivider"></li>
                 <li>
-                    <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">verified_user</i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i>Biblioteca</a>
+                    <a href="http://upeu.sdp.sirsidynix.net/client/lima" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">verified_user</i> Biblioteca</a>
+                    <ul class="full-width">
+                        <li><a href="http://upeu.sdp.sirsidynix.net/client/lima" class="waves-effect waves-light">Bibliioteca Electronica</a></li>
+                    </ul>
                 </li>
                 <li class="NavLateralDivider"></li>
                 <li>
-                    <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">assignment</i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i> Eventos</a>
+                    <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="large material-icons">assignment</i> Eventos</a>
                 </li>
                 <li class="NavLateralDivider">
                     

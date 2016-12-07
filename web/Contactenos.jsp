@@ -31,12 +31,12 @@
 
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="Nombre" type="text" class="validate">
+                        <input id="Nombre" type="text" class="validate" pattern="[a-z]" required/>
                         <label for="Nombre">Nombres</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">star</i>
-                        <input id="Apellido" type="tel" class="validate">
+                        <input id="Apellido" type="tel" class="validate" pattern="[a-z]{9}" required/>
                         <label for="Apellido">Apellido</label>
                     </div>
                 </div>
@@ -68,11 +68,14 @@
             </form>
 
 
-        </div>
-        <div id="todo" class="container col s4" style=" width: 40%; height: 50%; 
-             margin-left: 1%; display: block; margin-top: 50px; float:left; 
-             border: 1px solid black;background: white;border-radius: 20px 20px 20px 20px">
-            <div id="map">
+        </div >
+        <!--<div id="todo" class="container col s4" style=" width: 40%; height: 50%; 
+              margin-left: 1%; display: block; margin-top: 50px; float:left; 
+             border: 1px solid black;background: white;border-radius: 20px 20px 20px 20px"> 
+        
+        
+        <div id="map">-->
+        <iframe style="margin-top: 100px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.803570100541!2d-76.8416216856188!3d-11.988089744074719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c2628dba8a63%3A0xf792d124c9bd5580!2zQ29sZWdpbyBVbmnDs24gZGUgw5Fhw7Fh!5e0!3m2!1ses!2ses!4v1480968180421" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
             
             <div class="fixed-action-btn horizontal">

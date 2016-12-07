@@ -118,16 +118,60 @@ public class home extends HttpServlet {
             break;
        case 2:
            
-           String user =  request.getParameter("user");
-           String pass = request.getParameter("clave");
-           if(ao.validar(user, pass)>0){
-               pagina="/h?op=1";
+           PersonaDAO op = new PersonaDAO();
+                HttpSession sesion = request.getSession();
+
+           if(request.getParameter("ingresa")!=null){
+                String user =  request.getParameter("user");
+                String pass = request.getParameter("clave");
+                switch (op.validar(user, pass)){
+                    case 1: 
+                        sesion.setAttribute("user", user);
+                        sesion.setAttribute("role", "1");
+                        pagina = "/h?op=3";
+                        dispatcher = getServletContext().getRequestDispatcher(pagina);
+                         dispatcher.forward(request, response);
+                        break; 
+                    case 2: 
+                        sesion.setAttribute("user", user);
+                        sesion.setAttribute("role", "2");
+                        pagina = "/h?op=4";
+                        dispatcher = getServletContext().getRequestDispatcher(pagina);
+                         dispatcher.forward(request, response);
+                        break; 
+                        
+                    case 21: 
+                        sesion.setAttribute("user", user);
+                        sesion.setAttribute("role", "21");
+                        pagina = "/h?op=1";
+                        dispatcher = getServletContext().getRequestDispatcher(pagina);
+                         dispatcher.forward(request, response);
+                        break; 
+                        }
            }else{
-               pagina="/h?op=0";
+               pagina = "/h?op=5";
+                        dispatcher = getServletContext().getRequestDispatcher(pagina);
+                         dispatcher.forward(request, response);
+                 
            }
-           dispatcher = getServletContext().getRequestDispatcher(pagina);
-           dispatcher.forward(request, response);
+           
            break;
+       case 3 : 
+           pagina = "/academico/AcademicoAlumno/Alumno_H.jsp";
+            dispatcher = getServletContext().getRequestDispatcher(pagina);
+            dispatcher.forward(request, response);
+            break;
+        case 4 : 
+           pagina = "/academico/AcademicoProfesor/profesor_H.jsp";
+            dispatcher = getServletContext().getRequestDispatcher(pagina);
+            dispatcher.forward(request, response);
+            break;
+            
+        case 5: 
+           pagina = "/academico/login.jsp";
+            dispatcher = getServletContext().getRequestDispatcher(pagina);
+            dispatcher.forward(request, response);
+            break;
     }
     
     }

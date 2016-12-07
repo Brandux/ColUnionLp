@@ -1,12 +1,26 @@
 <%-- any content can be specified here e.g.: --%>
-
+<%@page session="true" %>
+<%
+      HttpSession sesion = request.getSession();
+      String esuario ;
+      String role;
+      
+      if(sesion.getAttribute("user")!= null && sesion.getAttribute("role")!= null){
+          esuario = sesion.getAttribute("user").toString();
+          role = sesion.getAttribute("role").toString();
+          out.print("<li href='login.jsp?cerrar=true'>"+esuario+"</li>");
+      }
+    
+   %>
 <section class="ContentPage full-width">
 
     <div class="ContentPage-Nav full-width">
         <ul class="full-width">
             <li class="btn-MobileMenu ShowHideMenu"><a href="#" class="tooltipped waves-effect waves-light" data-position="bottom" data-delay="50" data-tooltip="Menu"><i class="zmdi zmdi-more-vert"></i></a></li>
             <li><figure><img src="Imagenes/user.png" alt="UserImage"></figure></li>
-            <li style="padding:0 5px;" >Brandux</li>
+            <li style="padding:0 5px;" >face-school</li>
             <li><a href="h?op=0" class="tooltipped waves-effect waves-light " data-position="bottom" data-delay="50" data-tooltip="Cerrar Sesión"><i class="zmdi zmdi-power"></i></a></li>
         </ul>   
     </div>
+    
+    

@@ -16,18 +16,16 @@ public class Grado_CursoDTO {
     int idHorario;
     int idGrado;
     int idCurso;
-    String estado;
     
     
     public Grado_CursoDTO() {
     }
 
-    public Grado_CursoDTO(int idProfesor, int idHorario, int idGrado, int idCurso, String estado) {
+    public Grado_CursoDTO(int idProfesor, int idHorario, int idGrado, int idCurso) {
         this.idProfesor = idProfesor;
         this.idHorario = idHorario;
         this.idGrado = idGrado;
         this.idCurso = idCurso;
-        this.estado = estado;
     }
 
     public int getIdGradocurso() {
@@ -70,13 +68,6 @@ public class Grado_CursoDTO {
         this.idCurso = idCurso;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
+    
     
 }

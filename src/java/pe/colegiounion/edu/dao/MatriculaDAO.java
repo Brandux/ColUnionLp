@@ -24,8 +24,8 @@ public class MatriculaDAO implements Operaciones<MatriculaDTO>{
     private ResultSet rs;
     private Connection cx;
     private final String SQL_LISTAR = "SELECT * FROM MATRICULA";
-    private final String SQL_GUARDAR = "INSERT INTO MATRICULA (IDMATRICULA, IDGRADO, IDESTADO,IDALUMNO,FECHA,ESTADO) VALUES (NULL, ?, ?,?, ? ,?)";
-    private final String SQL_UPDATE = "UPDATE MATRICULA SET IDMATRICULA =?, IDGRADO = ?, IDESTADO = ? IDALUMNO=? , FECHA=?,ESTADO=?  WHERE idMatricula =?";
+    private final String SQL_GUARDAR = "INSERT INTO MATRICULA (IDMATRICULA, IDGRADO, IDESTADO,IDALUMNO,FECHA) VALUES (0, ?, ?,?, ? )";
+    private final String SQL_UPDATE = "UPDATE MATRICULA SET IDMATRICULA =?, IDGRADO = ?, IDESTADO = ? IDALUMNO=? , FECHA=?  WHERE idMatricula =?";
     private final String SQL_BUSCAR = "SELECT *FROM MATRICULA WHERE IDMATRICULA=?";
     private final String SQL_ELIMINAR = "DELETE FROM MATRICULA WHERE IDMATRICULA = ?";
 
@@ -40,7 +40,6 @@ public class MatriculaDAO implements Operaciones<MatriculaDTO>{
             ps.setInt(2, p.getIdEstado());
             ps.setInt(3, p.getIdAlumno());
             ps.setString(4, p.getFecha());
-            ps.setString(5, p.getEstado());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -77,8 +76,7 @@ public class MatriculaDAO implements Operaciones<MatriculaDTO>{
             ps.setInt(2, p.getIdEstado());
             ps.setInt(3, p.getIdAlumno());
             ps.setString(4, p.getFecha());
-            ps.setString(5, p.getEstado());
-            ps.setInt(6, p.getIdMatricula());
+            ps.setInt(5, p.getIdMatricula());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -101,7 +99,6 @@ public class MatriculaDAO implements Operaciones<MatriculaDTO>{
                 m.setIdEstado(rs.getInt("IDESTADO"));
                 m.setIdAlumno(rs.getInt("IDALUMNO"));
                 m.setFecha(rs.getString("FECHA"));
-                m.setEstado(rs.getString("ESATDO"));
                 m.setIdMatricula(rs.getInt("IDMATRICULA"));
             }
         } catch (Exception e) {
@@ -123,7 +120,6 @@ public class MatriculaDAO implements Operaciones<MatriculaDTO>{
                 m.setIdEstado(rs.getInt("IDESTADO"));
                 m.setIdAlumno(rs.getInt("IDALUMNO"));
                 m.setFecha(rs.getString("FECHA"));
-                m.setEstado(rs.getString("ESATDO"));
                 m.setIdMatricula(rs.getInt("IDMATRICULA"));
                 lista.add(m);
             }
